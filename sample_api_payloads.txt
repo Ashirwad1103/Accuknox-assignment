@@ -1,0 +1,35 @@
+1. POST - http://127.0.0.1:8000/api/users/signup/
+    body - {
+        email: str,
+        username: str,
+        password: str
+    }
+2. POST - http://127.0.0.1:8000/api/users/login/
+    body - {
+        email: str,
+        password: str
+    }
+3. POST - http://127.0.0.1:8000/api/users/friend-request/send/
+    Headers - 
+        Authorization:  Bearer {access_token}
+    body - {
+        to_user: <user_id>
+    } 
+
+4. GET - http://127.0.0.1:8000/api/users/friend-requests/pending/
+    Headers - 
+        Authorization:  Bearer {access_token}
+
+5. GET - http://127.0.0.1:8000/api/users/search?q={search_param:str}
+    Headers - 
+        Authorization:  Bearer {access_token}
+
+6. PUT - http://127.0.0.1:8000/api/users/friend-request/<int:pk>/<str:action>/
+    Headers - 
+        Authorization:  Bearer {access_token}
+    pk - id of friend request, this id is recieved in response send friend request api
+    action - it can have two possible values - "accept" or "reject" 
+
+7. GET - http://127.0.0.1:8000/api/users/friends-list
+    Headers - 
+        Authorization:  Bearer {access_token}
